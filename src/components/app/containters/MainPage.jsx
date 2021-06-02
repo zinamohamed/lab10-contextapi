@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getCharacters } from '../../../services/HeyArnoldApi';
+import CharacterList from '../presentations/CharacterList';
 
 
 const MainPage = () => {
@@ -9,7 +10,9 @@ const MainPage = () => {
 
   useEffect(() => { 
     getCharacters()
-      .then(setCharacters(characters))
+      .then(arnolds => {
+        setCharacters(arnolds);
+      })
       .finally(() => setLoading(false));
   }, []);
 
@@ -17,6 +20,7 @@ const MainPage = () => {
   return (
     <div>
       <h2>Main Page Container!</h2>
+      <CharacterList loading={loading} characters={characters}/>
     </div>
   );
 
