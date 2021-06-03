@@ -3,15 +3,13 @@ import PropTypes from 'prop-types';
 import Character from './Character';
 
 const CharacterList = ({ loading, characters }) => { 
-  console.log(characters);
-  console.log(loading);
   return (
     <div>
       { loading 
         ?
         <h3>Loading...</h3>
         :
-        <ul>
+        <ul aria-label="arnold">
           {characters.map(character => (<Character
             key={character.id}
             name={character.name}
