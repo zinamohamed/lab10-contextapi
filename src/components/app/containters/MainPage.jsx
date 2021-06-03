@@ -17,7 +17,7 @@ const MainPage = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  const { toggle } = React.useContext(ThemeContext); 
+  const toggle  = React.useContext(ThemeContext); 
   
   return (
     <div style={ toggle ? { background: 'black', color: 'white' } : {}}>
